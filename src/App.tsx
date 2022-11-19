@@ -35,7 +35,7 @@ function App() {
         Hier haven wir die Galerie als unsere "Kindkomponente"
         Die Galerie zeigt uns die Charaktere an
         Dafür übergeben wir ihr die Charaktere in einem Props-"Paket"*/}
-            <CharacterGalery key={1} characters={RICK_AND_MORTY_CHARACTERS}/>
+            <CharacterGalery characters={RICK_AND_MORTY_CHARACTERS}/>
         </div>);
 }
 
