@@ -1,7 +1,7 @@
 import {Character} from "../model/Character"
 
 type CharacterCardProps = {
-    character : Character
+    character: Character
 }
 
 import "./CharacterCard.css"
@@ -10,7 +10,7 @@ import "./CharacterCard.css"
 //Die Struktur ist immer <Komponentename>Props
 //Also CharacterCard + Props = CharacterCardProps
 
-export default function CharacterCard({character}: CharacterCardProps){
+export default function CharacterCard({character}: CharacterCardProps) {
 
     return (
         <div className={"character-card"}>
