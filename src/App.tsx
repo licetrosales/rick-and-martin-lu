@@ -1,26 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header"
+import {RICK_AND_MORTY_CHARACTERS} from "./data/rick_and_morty_characters";
+import CharacterGalery from './components/CharacterGalery';
 
 function App() {
+  console.log(RICK_AND_MORTY_CHARACTERS[0])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+        <Header />
+        <CharacterGalery key={1} characters={RICK_AND_MORTY_CHARACTERS}/>
+    </div>);
 }
 
 export default App;
