@@ -15,19 +15,19 @@ type CharacterGalleryProps = {
     characters: Character[]
 }
 export default function CharacterGalery({characters}: CharacterGalleryProps) {
-    const characterComponents = characters.map((character) => {
-        return (
+const characterComponents = characters.map((character)=>{
+    return (
 // Wir verpacken die CharacterCardComponent in einem <div> mit der Klasse .card
-            //className = Git dem HTML Element die Klasse "card"
+        //className = Git dem HTML Element die Klasse "card"
 
-            <div className={"card"}>
-                {/* key ist ein besonderes Prop!
-            Wir brauchen es camit jedes Element in einer Liste eine _eindeutige_ ID hat*/}
-                <CharacterCard key={character.id}
-                               character={character}/>
-            </div>
-        )
-    })
+        <div className={"card"}>
+            {/* key ist ein besonderes Prop!
+            Wir brauchen es samit jedes Element in einer Liste eine _eindeutige_ ID hat*/}
+            <CharacterCard key={character.id}
+               character = {character}/>
+        </div>
+    )
+})
 
     return (
         <div>

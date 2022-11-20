@@ -18,7 +18,7 @@ function App() {
 
     /* Was ist eigentlich die Aufgabe von App.tsx?
     * -> App.tsx ist unsere Oberkomponente in der Struktur
-    * -> App.tsx sollte möchlicst llein und kompkt bleiben
+    * -> App.tsx sollte möchligst klein und kompakt bleiben
     (Das ist ein allgemeines React-Konzept).
     * Deshalb legen wir den Code in immer kleinere Stückkchen "nach unten"*/
 
@@ -32,7 +32,7 @@ function App() {
             {/* Header gehört zu App.tsx */}
             <Header/>
             {/*
-        Hier haven wir die Galerie als unsere "Kindkomponente"
+        Hier haben wir die Galerie als unsere "Kindkomponente"
         Die Galerie zeigt uns die Charaktere an
         Dafür übergeben wir ihr die Charaktere in einem Props-"Paket"*/}
             <CharacterGalery characters={RICK_AND_MORTY_CHARACTERS}/>
