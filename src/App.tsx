@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {ChangeEvent, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header"
 import {RICK_AND_MORTY_CHARACTERS} from "./data/rick_and_morty_characters";
 import CharacterGalery from './components/CharacterGalery';
+
 
 // export = mach die Funktion öffentlich, erlaube Imports
 // default = Das ist der Standardexport in dieser Datei
@@ -15,6 +16,23 @@ function App() {
     // Für Übungszwecke importieren wir die daten hier aber lokal
 
     console.log(RICK_AND_MORTY_CHARACTERS[0])
+
+    const [searchText, setSearchText] = useState("")
+
+    //filter erstellen
+const filteredChracters = RICK_AND_MORTY_CHARACTERS.filter((character)=>{
+    if(character.name.toLowerCase().includes(searchText.toLowerCase())){
+        return true
+    }
+    //
+    return false
+})
+        //Wert im Feld
+    const onSearhTextChange = (event:ChangeEvent<HTMLInputElement>)=> {
+console.log(event.target.value)
+        setSearchText(event.target.value)
+
+    }
 
     /* Was ist eigentlich die Aufgabe von App.tsx?
     * -> App.tsx ist unsere Oberkomponente in der Struktur
@@ -31,11 +49,14 @@ function App() {
         <div className="App">
             {/* Header gehört zu App.tsx */}
             <Header/>
+
+            <input onChange={onSearhTextChange}/>
+
             {/*
         Hier haben wir die Galerie als unsere "Kindkomponente"
         Die Galerie zeigt uns die Charaktere an
         Dafür übergeben wir ihr die Charaktere in einem Props-"Paket"*/}
-            <CharacterGalery characters={RICK_AND_MORTY_CHARACTERS}/>
+            <CharacterGalery characters={filteredChracters}/>
         </div>);
 }
 
