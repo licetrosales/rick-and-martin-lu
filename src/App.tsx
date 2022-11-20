@@ -1,9 +1,10 @@
-import React, {ChangeEvent, useState } from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from "./components/Header"
 import {RICK_AND_MORTY_CHARACTERS} from "./data/rick_and_morty_characters";
 import CharacterGalery from './components/CharacterGalery';
+import ActionBar from './components/ActionBar';
 
 
 // export = mach die Funktion öffentlich, erlaube Imports
@@ -20,25 +21,29 @@ function App() {
     const [searchText, setSearchText] = useState("")
 
     //filter erstellen
-const filteredChracters = RICK_AND_MORTY_CHARACTERS.filter((character)=>{
-    if(character.name.toLowerCase().includes(searchText.toLowerCase())){
-        return true
-    }
-    //
-    return false
-})
-        //Wert im Feld
-    const onSearhTextChange = (event:ChangeEvent<HTMLInputElement>)=> {
-console.log(event.target.value)
-        setSearchText(event.target.value)
+    const filteredChracters = RICK_AND_MORTY_CHARACTERS.filter((character) => {
+        if (character.name.toLowerCase().includes(searchText.toLowerCase())) {
+            return true
+        }
+        //
+        return false
+    })
 
+    function myFunction(searchText: string) {
+        console.log("App")
+        console.log(searchText)
+        setSearchText(searchText)
     }
+
 
     /* Was ist eigentlich die Aufgabe von App.tsx?
     * -> App.tsx ist unsere Oberkomponente in der Struktur
     * -> App.tsx sollte möchligst klein und kompakt bleiben
     (Das ist ein allgemeines React-Konzept).
     * Deshalb legen wir den Code in immer kleinere Stückkchen "nach unten"*/
+
+    // callback functions
+
 
     return (
         /* Hier ist eine Einheit von React!
@@ -50,7 +55,7 @@ console.log(event.target.value)
             {/* Header gehört zu App.tsx */}
             <Header/>
 
-            <input onChange={onSearhTextChange}/>
+            <ActionBar myCallBackFunction={myFunction}/>
 
             {/*
         Hier haben wir die Galerie als unsere "Kindkomponente"
